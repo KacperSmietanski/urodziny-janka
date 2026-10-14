@@ -2,7 +2,7 @@ const campaignQuests = [
   {
     "id": "izak",
     "pool": "random",
-    "npcName": "Izabela Karolewska (IZAK)",
+    "npcName": "Izabela Karolewska",
     "npcTitle": "Wielka Mistrzyni Lucka i Patronka Odklejenia",
     "questTitle": "Pędzel Przeznaczenia: Bestia zwana Luckiem",
     "lore": "W cieniu imprezowej twierdzy stoi mistrzyni sztuk dziwnych i wizji nieoczywistych. Jej chowaniec – legendarny Lucek – przybiera formy, których ludzki umysł nie potrafi pojąć na trzeźwo. Zanim ruszysz w dalszą drogę, musisz przelać jego majestat na papier.",
@@ -17,7 +17,7 @@ const campaignQuests = [
   {
     "id": "aga",
     "pool": "random",
-    "npcName": "Agnieszka Śmietańska (Aga)",
+    "npcName": "Agnieszka Śmietańska",
     "npcTitle": "Strażniczka Klucza i Zaklinaczka Kadrów",
     "questTitle": "Szkarłatny Pryzmat Sześciu Artefaktów",
     "lore": "Aga patrzy na świat przez soczewkę ukrytych barw i symetrii. Posiada Klucz do dalszych komnat, ale odda go tylko temu, kto udowodni, że potrafi dostrzec porządek w imprezowym chaosie.",
@@ -47,7 +47,7 @@ const campaignQuests = [
   {
     "id": "nikodem",
     "pool": "random",
-    "npcName": "Nikodem 'Gumiarz' Mielczarek",
+    "npcName": "Nikodem Mielczarek",
     "npcTitle": "Behemot z Kuszą i Reżyser Apokalipsy",
     "questTitle": "Żywa Scena z Tibii: Próba Immersji 3D",
     "lore": "Gumiarz wyciąga losowy rekwizyt i przydziela Ci rolę prosto z Tibii. Nie wystarczy opowiedzieć o przygodzie — masz wejść w świat gry całym sobą i odegrać scenę, jakby właśnie rozgrywała się wokół Ciebie.",
@@ -67,7 +67,7 @@ const campaignQuests = [
     "questTitle": "Have You Heard of the High Elves? Próba Leja",
     "lore": "Patryk wygląda jak NPC z Cyrodiil, ale jego torba skrywa tajemniczy przedmiot. Żeby dowiedzieć się, co to za artefakt, musisz najpierw zadać właściwe pytanie.",
     "rhyme": "Zapytaj, co skrywa jego torba,\nA gdy artefakt wyjdzie na światło —\nUżyjcie go razem, podzielcie się łupem,\nI ruszaj dalej z nowym tropem!",
-    "task": "Podejdź do Patryka i zapytaj go wprost: „Co masz w torbie?”. Gdy wyciągnie swój przedmiot, użyjcie go razem i podzielcie się nim, aby zaliczyć questa. Jeśli to napój lub jedzenie, możecie wybrać wersję bezalkoholową albo symboliczną — liczy się wspólna próba.",
+    "task": "Podejdź do Patryka i zapytaj go wprost: „Co masz w torbie?”. Gdy wyciągnie swój przedmiot, użyjcie go razem i podzielcie się nim, aby zaliczyć questa. Jeśli to napój lub jedzenie, możecie wybrać wersję alkoholową albo symboliczną — liczy się wspólna próba.",
     "reward": "Wspólny łup z tajemniczej torby",
     "hasOblivionMusic": true,
     "isMystery": false,
@@ -108,7 +108,7 @@ const campaignQuests = [
   {
     "id": "mati",
     "pool": "random",
-    "npcName": "Mateusz Miłek (Mati)",
+    "npcName": "Mateusz Miłek",
     "npcTitle": "Snajper z Mirage'a i Mistrz Chaosu",
     "questTitle": "Clutch 1v5: Próba Refleksu i Równowagi",
     "lore": "Mati pojawia się tam, gdzie nikt się go nie spodziewa. Jego ruchy są nieprzewidywalne jak rozrzut z AK-47 w biegu, a refleks szybszy niż tickrate serwera.",
@@ -123,7 +123,7 @@ const campaignQuests = [
   {
     "id": "maks",
     "pool": "random",
-    "npcName": "Maksymilian Kownacki (Maks)",
+    "npcName": "Maksymilian Kownacki",
     "npcTitle": "Nawigator znad Wisły i Tropiciel Zaginionych Szlaków",
     "questTitle": "Kompas Zaginionego Wędrowca",
     "lore": "Maks zna ścieżki, których nie ma na mapach, oraz takie, które dziwnym trafem zawsze prowadzą nad Wisłę.",
@@ -144,7 +144,7 @@ const campaignQuests = [
     "questTitle": "BOSS POŁOWY GRY: Papier, Kamień, Nożyce",
     "lore": "Dziesiąty przystanek to pojedynek z Dawidem Śmietańskim. Zamiast rozstrzygać dawne spory w FIFIE, stajecie naprzeciw siebie w klasycznej próbie papier–kamień–nożyce.",
     "rhyme": "Dziesiąty przystanek, boss już na Ciebie czeka,\nPapier, kamień, nożyce — niech los nie zwleka!\nDo trzech wygranych, seria za serią,\nAż Twoje zwycięstwo zamknie tę batalię!",
-    "task": "Zagrajcie z Dawidem w papier–kamień–nożyce w formacie BO5 (do trzech wygranych). Jeśli Dawid wygra serię, rozpocznijcie następną — gracie, aż Janek wygra. Po każdej przegranej Janka przewidziany jest mały toast/shot; może to być napój bezalkoholowy albo symboliczny łyk. Wynik każdej serii zapisujcie na stronie.",
+    "task": "Zagrajcie z Dawidem w papier–kamień–nożyce w formacie BO5 (do trzech wygranych). Jeśli Dawid wygra serię, rozpocznijcie następną — gracie, aż Janek wygra. Po każdej przegranej Janka przewidziany jest mały toast/shot; może to być napój alkoholowy albo symboliczny łyk. Wynik każdej serii zapisujcie na stronie.",
     "reward": "Tytuł Mistrza Papieru, Kamienia i Nożyc",
     "hasOblivionMusic": false,
     "isMystery": false,
@@ -204,7 +204,7 @@ const campaignQuests = [
     "questTitle": "Trybunał Absurdalnego Quizu",
     "lore": "Mędrcy studiują gwiazdy, alchemicy złoto, a Arcymistrz Grzegorz gromadzi wiedzę tak dziwną i niepraktyczną, że zwykłym śmiertelnikom paruje od niej zbroja.",
     "rhyme": "Mądrość nie zawsze w księgach się chowa,\nCzasem wystarczy zagadka losowa.\nOdpowiedz Mistrzowi bez cienia wahania,\nAlbo wykonaj zadanie dla wyrównania!",
-    "task": "Grzegorz zadaje Ci 2 nieoczywiste pytania z wiedzy ogólnej lub imprezowej. Musisz trafić przynajmniej jedno albo wykonać zabawne, bezalkoholowe zadanie mędrca.",
+    "task": "Grzegorz zadaje Ci 2 nieoczywiste pytania z wiedzy ogólnej lub imprezowej. Musisz trafić przynajmniej jedno albo wykonać zabawne, alkoholowe zadanie mędrca.",
     "reward": "Księga Zakazanej Wiedzy",
     "hasOblivionMusic": false,
     "isMystery": true,
@@ -251,7 +251,7 @@ const campaignQuests = [
     "pool": "final",
     "isFinal": true,
     "requiresPassword": true,
-    "npcName": "Julia Kachan (Julka)",
+    "npcName": "Julia Kachan",
     "npcTitle": "Strażniczka Mrocznej Pieczęci i Pani Serca Jankeira",
     "questTitle": "WIELKI FINAŁ: Rytuał Pięciu Żywiołów i Mroczna Pieczęć",
     "lore": "Przeszedłeś przez wszystkie próby i dotarłeś do ostatniej Strażniczki — Julki. Za jej plecami spoczywa tajemniczy skarb z najgłębszego skarbca, szczelnie ukryty przed ciekawskimi spojrzeniami. Mroczna pieczęć ustąpi dopiero po wykonaniu finałowej próby i podaniu właściwego hasła.",
@@ -264,3 +264,4 @@ const campaignQuests = [
     "portrait": "images/julka.webp"
   }
 ];
+
