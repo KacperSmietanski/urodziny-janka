@@ -8,6 +8,7 @@ const defaults = () => ({
   pendingToast: null,
   toastDraft: '',
   toastHistory: [],
+  journalText: '',
   korneliaHint: false,
   rps: { janekWins: 0, dawidWins: 0, totalLosses: 0, pendingToast: false }
 });
@@ -18,6 +19,7 @@ try {
   state.drinks = { ...defaults().drinks, ...(state.drinks || {}) };
   state.bag = Array.isArray(state.bag) ? state.bag : [];
   state.toastHistory = Array.isArray(state.toastHistory) ? state.toastHistory : [];
+  state.journalText = typeof state.journalText === 'string' ? state.journalText : '';
   state.rps = { ...defaults().rps, ...(state.rps || {}) };
   const saved = new Set(Array.isArray(state.done) ? state.done : []);
   state.done = [];
@@ -77,7 +79,7 @@ function activeQuestHtml(quest, index) {
     <div class="task-label">Twoje zadanie</div><p class="task">${textBlock(quest.task)}</p>${videoLink}${rps}${bonus}
     <div class="reward"><span>Nagroda</span><strong>${escapeHtml(quest.reward)}</strong></div>
     ${passwordGate}
-    <div class="quest-foot"><span class="hint">${canComplete ? 'Po queście napijesz toast z uczestnikiem, zanim odkryje się dalsza droga.' : quest.rpsChallenge && state.rps.dawidWins >= 3 ? 'Dawid wygrał serię — zagrajcie kolejną, aż Janek zwycięży.' : 'Najpierw wpisz hasło finału.'}</span><button class="btn primary" id="completeQuest" ${canComplete ? '' : 'disabled'}>Wykonałem questa</button></div>
+    <div class="quest-foot"><span class="hint">${canComplete ? 'Po queście napijesz się toastu z uczestnikiem, zanim odkryje się dalsza droga.' : quest.rpsChallenge && state.rps.dawidWins >= 3 ? 'Dawid wygrał serię — zagrajcie kolejną, aż Janek zwycięży.' : 'Najpierw wpisz hasło finału.'}</span><button class="btn primary" id="completeQuest" ${canComplete ? '' : 'disabled'}>Wykonałem questa</button></div>
   </article>`;
 }
 
@@ -206,8 +208,14 @@ function drawBag() {
   });
 }
 
+function drawJournal() {
+  const field = el('journalInput');
+  field.value = state.journalText;
+  field.oninput = () => { state.journalText = field.value.slice(0, 5000); save(); el('journalStatus').textContent = 'Zapisano na tym urządzeniu.'; };
+}
+
 function render() {
-  drawQuests(); drawCounters(); drawBag();
+  drawQuests(); drawCounters(); drawBag(); drawJournal();
   const completed = state.done.length;
   el('doneStat').textContent = completed;
   el('progressText').textContent = `${completed} / ${quests.length} questów`;
