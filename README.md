@@ -1,18 +1,19 @@
 # Kroniki Janka
 
-Mobile-first, static birthday RPG for Janek. The app runs directly in a modern browser; no build step, account, or backend is required. Keep `index.html`, `app.js`, and `campaign-data.js` together in the published site folder.
+Mobilna, statyczna kampania RPG na urodziny Janka. Działa w nowoczesnej przeglądarce bez instalacji, backendu ani konta. Do publikacji w GitHub Pages wrzuć do katalogu głównego `index.html`, `app.js`, `campaign-data.js` i folder `images/`.
 
-## Run
+## Uruchomienie
 
-Open `index.html` in a browser. Quest progress, the inventory, and the finale unlock are stored in that browser's local storage on the device. Quest cards unlock one at a time. The supplied YouTube radio is requested on page load; mobile browsers may require the player’s play button to be tapped. Music needs an internet connection.
+Otwórz `index.html` w przeglądarce albo opublikuj repozytorium przez GitHub Pages. Postęp, toasty, ekwipunek i liczniki zapisują się lokalnie w przeglądarce na urządzeniu. Po zaliczeniu questa Janek pisze toast i potwierdza jego wzniesienie, zanim odkryje się następna karta. Muzyka z YouTube startuje automatycznie, o ile przeglądarka na to pozwoli; na telefonie może być potrzebne dotknięcie przycisku odtwarzania.
 
-## Campaign notes
+## Kampania
 
-- The quest list includes all 17 guests from the supplied participant list.
-- Patryk Kawiak is encounter 5, Dawid Śmietański is encounter 10, and Julia Kachan is the last encounter. Dawid Budziłek's YouTube video is linked from his quest.
-- Five encounters are styled as mysterious NPCs while keeping each character's name visible.
-- The finale accepts “sawanna afrykańska” with case, spaces, punctuation, and Polish diacritics ignored.
-- Drink counters are optional, include water, and can be changed or reset by the player.
+- 17 portretów uczestników w lekkim formacie WebP znajduje się w folderze `images/`.
+- Patryk Kawiak jest piąty, Dawid Śmietański dziesiąty, Kornelia przedostatnia, a Julia Kachan prowadzi finał.
+- Quest Dawida Budziłka zawiera link do wskazanego filmu YouTube.
+- Dawid Śmietański prowadzi pojedynek papier–kamień–nożyce BO5 aż do zwycięstwa Janka.
+- Kornelia może ujawnić wskazówkę do finałowego hasła po opcjonalnym queście pobocznym.
+- W finale hasło „sawanna afrykańska” otwiera mroczną pieczęć i uruchamia finałowy utwór.
+- Toasty i próby napojowe mogą być bezalkoholowe lub symboliczne; w ekwipunku jest też licznik wody.
 
-Progress stays on the device unless the player clears browser storage. The YouTube player and optional web font require an internet connection.
-
+Postęp pozostaje na urządzeniu i przeglądarce Janka. YouTube i zewnętrzny krój pisma wymagają internetu.

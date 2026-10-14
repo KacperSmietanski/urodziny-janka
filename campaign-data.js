@@ -7,11 +7,12 @@ const campaignQuests = [
     "questTitle": "Pędzel Przeznaczenia: Bestia zwana Luckiem",
     "lore": "W cieniu imprezowej twierdzy stoi mistrzyni sztuk dziwnych i wizji nieoczywistych. Jej chowaniec – legendarny Lucek – przybiera formy, których ludzki umysł nie potrafi pojąć na trzeźwo. Zanim ruszysz w dalszą drogę, musisz przelać jego majestat na papier.",
     "rhyme": "Chwyć za pióro lub mazak, niech zadrży Twa dłoń,\nNarysuj tu Lucka, jakby szedł w bój na koń!\nMa być potężny, dziwaczny i zły,\nIzak oceni, czyś godzien tej gry!",
-    "task": "Narysuj Lucka jako epickiego bossa z gry RPG w 90 sekund. Izak ocenia Twoje dzieło w trzech kategoriach: Podobieństwo, Kreatywność oraz Poziom Odklejenia. Dodatkowo zapytaj Izak, co masz powtórzyć na tych urodzinach!",
+    "task": "Narysuj Lucka jako epickiego bossa z gry RPG w 5 minut. Izak ocenia Twoje dzieło w trzech kategoriach: Podobieństwo, Kreatywność oraz Poziom Odklejenia.",
     "reward": "Karta Przywołania Lucka (+10 do Charyzmy)",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/izak.webp"
   },
   {
     "id": "aga",
@@ -21,11 +22,12 @@ const campaignQuests = [
     "questTitle": "Szkarłatny Pryzmat Sześciu Artefaktów",
     "lore": "Aga patrzy na świat przez soczewkę ukrytych barw i symetrii. Posiada Klucz do dalszych komnat, ale odda go tylko temu, kto udowodni, że potrafi dostrzec porządek w imprezowym chaosie.",
     "rhyme": "Sześć rzeczy w jednym kolorze odnajdź wśród gości,\nUłóż z nich ołtarz ku kadru światłości.\nGdy błysk obiektywu uwieczni ten stan,\nKlucz do kolejnej z bram będzie Ci dan!",
-    "task": "Wylosuj (lub niech Aga wybierze) jeden kolor. Masz 2 minuty, by znaleźć na imprezie 6 przedmiotów w tym kolorze, ułożyć z nich artystyczny kolaż i zrobić im zdjęcie (lub odtworzyć wskazany przez Agę kadr). Nie zapomnij zadać pytania urodzinowego!\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
+    "task": "Wylosuj (lub niech Aga wybierze) jeden kolor. Masz 2 minuty, by znaleźć na imprezie 6 przedmiotów w tym kolorze, ułożyć z nich artystyczny kolaż i zrobić im zdjęcie (lub odtworzyć wskazany przez Agę kadr). Nie zapomnij zadać pytania urodzinowego!",
     "reward": "Srebrny Klucz Kadru",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/aga.webp"
   },
   {
     "id": "paula",
@@ -35,25 +37,27 @@ const campaignQuests = [
     "questTitle": "Kwakot Fałszywych Proroków",
     "lore": "Powiadają, że Paula potrafi wkręcić kupcowi jego własny płaszcz i wmówić smokowi, że jest gołębiem. Jej słowa to labirynt – jeden fałszywy krok, a uwierzysz w historię, która nigdy się nie wydarzyła.",
     "rhyme": "Kwa, kwa, wędrowcze, nadstaw swe uszy,\nJedna z trzech bajek prawdę poruszy.\nDwie są ułudą, pułapką na leszcza,\nZgadnij, co prawdą w słowach się streszcza!",
-    "task": "Paula opowie Ci trzy absurdalne historie – tylko jedna z nich jest prawdziwa. Musisz wyczuć blef i wskazać prawdę (albo trafić celny rzut do kubka w mini-próbie Beer Ponga, jeśli się pomylisz). Zadaj jej też pytanie o powtórkę na urodzinach!",
+    "task": "Paula opowie Ci trzy absurdalne historie – tylko jedna z nich jest prawdziwa. Musisz wyczuć blef i wskazać prawdę.",
     "reward": "Amulet 'Nie Dałem Się Wkręcić' (+15 do Percepcji)",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/paula.webp"
   },
   {
     "id": "nikodem",
     "pool": "random",
     "npcName": "Nikodem 'Gumiarz' Mielczarek",
     "npcTitle": "Behemot z Kuszą i Reżyser Apokalipsy",
-    "questTitle": "Kroniki Dnia Niepodległości: Akt Pierwszy",
-    "lore": "Potężny Behemot z kuszą na ramieniu nie uznaje półśrodków. W jego świecie liczy się patos, dramat, wybuchy w tle i pełne poświęcenie dla ojczyzny (albo przynajmniej dla dobrej beki).",
-    "rhyme": "Kosmitów flota nadciąga znad chmur,\nChwyć za rekwizyt i wskakuj na mur!\nSześćdziesiąt sekund na dramat i pot,\nNiechaj zatrzęsie się cały ten zlot!",
-    "task": "Otrzymujesz od Nikodema rolę oraz losowy rekwizyt. Masz 60 sekund na odegranie dramatycznej sceny z 'Dnia Niepodległości' w wersji RPG (przemowa prezydenta lub ostatni szturm z kuszą). Im większy patos i absurd, tym lepiej!\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
+    "questTitle": "Żywa Scena z Tibii: Próba Immersji 3D",
+    "lore": "Gumiarz wyciąga losowy rekwizyt i przydziela Ci rolę prosto z Tibii. Nie wystarczy opowiedzieć o przygodzie — masz wejść w świat gry całym sobą i odegrać scenę, jakby właśnie rozgrywała się wokół Ciebie.",
+    "rhyme": "Rekwizyt w dłoń, a rola już czeka,\nTibia do życia z ekranu ucieka.\nWczuj się w tę scenę, pokaż swój świat,\nNiech każdy poczuje, że ruszył ten quest!",
+    "task": "Nikodem losuje dla Ciebie rekwizyt i rolę z Tibii (np. rycerz, NPC, potwór albo poszukiwacz przygód). Odegraj 30–60-sekundową scenkę tak, jakby otoczenie zmieniło się w Tibijski świat: możesz odegrać questa, spotkanie z potworem albo walkę. Wczuj się w akcję 3D — głos, ruch i pełna immersja mile widziane.",
     "reward": "Bełt z Kuszy Behemota",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/nikodem.webp"
   },
   {
     "id": "patryk",
@@ -61,13 +65,14 @@ const campaignQuests = [
     "npcName": "Patryk Kawiak",
     "npcTitle": "Imperialny NPC z Cyrodiil i Strażnik Leja",
     "questTitle": "Have You Heard of the High Elves? Próba Leja",
-    "lore": "Podchodzisz do postaci, która stoi nienaturalnie sztywno, patrzy prosto w pustkę i nagle obraca się w Twoją stronę z charakterystycznym uśmiechem z gry z 2006 roku. W jego sakwie spoczywa potężny relikt inżynierii hydro-chmielowej.",
-    "rhyme": "Włącz pieśń wyprawy, niech klimat się zgadza,\nPatryk zza pasa artefakt wytacza.\n„You have to try!” — rozbrzmiewa wśród ścian,\nWybierz toast, na jaki masz dziś plan!",
-    "task": "Patryk wyciąga z torby piwo i lej, po czym mówi: „You have to try!”. Jeśli masz ochotę, podejmij próbę razem z Patrykiem. Możecie też zrobić toast bezalkoholowy albo symboliczny — quest zalicza się niezależnie od wyboru.\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
-    "reward": "Złoty Lej z Cyrodiil (+50 do Odporności na Chmiel)",
+    "lore": "Patryk wygląda jak NPC z Cyrodiil, ale jego torba skrywa tajemniczy przedmiot. Żeby dowiedzieć się, co to za artefakt, musisz najpierw zadać właściwe pytanie.",
+    "rhyme": "Zapytaj, co skrywa jego torba,\nA gdy artefakt wyjdzie na światło —\nUżyjcie go razem, podzielcie się łupem,\nI ruszaj dalej z nowym tropem!",
+    "task": "Podejdź do Patryka i zapytaj go wprost: „Co masz w torbie?”. Gdy wyciągnie swój przedmiot, użyjcie go razem i podzielcie się nim, aby zaliczyć questa. Jeśli to napój lub jedzenie, możecie wybrać wersję bezalkoholową albo symboliczną — liczy się wspólna próba.",
+    "reward": "Wspólny łup z tajemniczej torby",
     "hasOblivionMusic": true,
     "isMystery": false,
-    "fixedPosition": 5
+    "fixedPosition": 5,
+    "portrait": "images/patryk.webp"
   },
   {
     "id": "dawid_budzilek",
@@ -77,12 +82,13 @@ const campaignQuests = [
     "questTitle": "Obrona Magisterska: Sprawa Pana 'Ja Tu Nie Rzygoł'",
     "lore": "Przekraczasz próg Wysokiej Komisji Śledczej. Dziekan Budziłek (chroniony tarczą RODO i siłą samego LeBrona) kładzie przed Tobą akta sprawy z polskiego autobusu z roku 2013: 'Kto narzygał i kto jadł rano kiełbaski?'.",
     "rhyme": "Komisja zasiada, materiał już gra,\nKto puścił pawia? Kto w ciula tu gra?\nCzy winny jadł rano kiełbasę ze słoika?\nObroń podejrzanego przed gniewem publiki!",
-    "task": "1. Obejrzyj materiał dowodowy na YouTube (http://www.youtube.com/watch?v=p1oCQVOamoM).\n2. Przeanalizuj zeznania świadków (pani z dzieckiem, oskarżyciela od porannej kiełbasy [00:00:30] oraz głównego podejrzanego [00:01:45]).\n3. Wskaż, kto według Ciebie faktycznie narzygał.\n4. Wygłoś 60-sekundową mowę obrończą (obronę magisterską) dla Pana 'Ja tu nie rzygoł' i odpowiedz na jedno pytanie Dziekana Dawida!\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
+    "task": "1. Obejrzyj materiał dowodowy na YouTube (http://www.youtube.com/watch?v=p1oCQVOamoM).\n2. Przeanalizuj zeznania świadków (pani z dzieckiem, oskarżyciela od porannej kiełbasy [00:00:30] oraz głównego podejrzanego [00:01:45]).\n3. Wskaż, kto według Ciebie faktycznie narzygał.\n4. Wygłoś 60-sekundową mowę obrończą (obronę magisterską) dla Pana 'Ja tu nie rzygoł' i",
     "reward": "Dyplom Doktora Habilitowanego Rzygania Stosowanego",
     "youtubeUrl": "http://www.youtube.com/watch?v=p1oCQVOamoM",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/dawid_budzilek.webp"
   },
   {
     "id": "kacper",
@@ -92,11 +98,12 @@ const campaignQuests = [
     "questTitle": "Pozew o Pojedynek: Paragraf i Wózek",
     "lore": "Przed Tobą Mistrz Gry we własnej osobie. Zanim jednak zasypie Cię paragrafami i przypomni, czyim jest synem, wyzywa Cię na honorowy pojedynek zręcznościowy, o którym będą śpiewać bardowie.",
     "rhyme": "Uważaj co mówisz, bo pozew już czeka,\nKacper w pojedynku nie oszczędza człowieka.\nStań z nim w szranki, wykaż się sprytem,\nNim skończysz w wózku pod prawniczym kwitem!",
-    "task": "Wyzwij Kacpra na szybki pojedynek zręcznościowy 1 na 1 (ustalony na miejscu przez Kacpra). Jeśli przegrasz, musisz wygłosić oficjalną mowę pochwalną dla 'Syna Prawnika'. Nie zapomnij zapytać go o rzecz do powtórzenia!",
+    "task": "Wyzwij Kacpra na szybki pojedynek zręcznościowy 1 na 1 (ustalony na miejscu przez Kacpra). Jeśli przegrasz, musisz wygłosić oficjalną mowę pochwalną dla 'Syna Prawnika'.",
     "reward": "Immunitet Prawniczy i Złote Kółko od Wózka",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/kacper.webp"
   },
   {
     "id": "mati",
@@ -106,25 +113,27 @@ const campaignQuests = [
     "questTitle": "Clutch 1v5: Próba Refleksu i Równowagi",
     "lore": "Mati pojawia się tam, gdzie nikt się go nie spodziewa. Jego ruchy są nieprzewidywalne jak rozrzut z AK-47 w biegu, a refleks szybszy niż tickrate serwera.",
     "rhyme": "Bombsite zajęty, została sekunda,\nOd Twego refleksu zależy ta runda.\nZłap to, co leci, utrzymaj swój pion,\nAlbo usłyszysz jak bije dzwon!",
-    "task": "Przejdź test refleksu w stylu CS2 (np. złapanie upuszczonego przedmiotu w locie po sygnale 'Flashbang!') połączony z absurdalnym testem równowagi wymyślonym przez Matiego.\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
+    "task": "Przejdź test refleksu w stylu CS2 (np. złapanie upuszczonego przedmiotu w locie po sygnale 'Flashbang!') połączony z absurdalnym testem równowagi wymyślonym przez Matiego.",
     "reward": "Karambit Równowagi (+20 do Zręczności)",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/mati.webp"
   },
   {
-    "id": "kornelia",
+    "id": "maks",
     "pool": "random",
-    "npcName": "Kornelia Zosiuk",
-    "npcTitle": "Bardka znad Sekwany i Mistrzyni Rytmu",
-    "questTitle": "Klątwa Francuskiego Języka i Tańca",
-    "lore": "Z dalekich krain elegancji i skomplikowanych głosek przybywa Kornelia. Aby zdobyć jej błogosławieństwo, musisz udowodnić, że Twój język i ciało potrafią współpracować pod presją.",
-    "rhyme": "Złóż usta w dzióbek, wymów 'croissant',\nNiech francuski akcent wypełni ten kąt!\nA jeśli język zaplącze się w supeł,\nZatańcz układzik, by zdobyć swój kufer!",
-    "task": "Powtórz bezbłędnie za Kornelią francuski łamaniec językowy z przesadnym francuskim akcentem ALBO odtwórz krótką, 15-sekundową choreografię, którą Ci pokaże.",
-    "reward": "Beret Barda (+10 do Elokwencji)",
+    "npcName": "Maksymilian Kownacki (Maks)",
+    "npcTitle": "Nawigator znad Wisły i Tropiciel Zaginionych Szlaków",
+    "questTitle": "Kompas Zaginionego Wędrowca",
+    "lore": "Maks zna ścieżki, których nie ma na mapach, oraz takie, które dziwnym trafem zawsze prowadzą nad Wisłę.",
+    "rhyme": "Gdy noc zapada nad brzegiem rzeki,\nPowrót do domu bywa daleki.\nWskaż strony świata, wytęż swą głowę,\nI odnajdź bezpieczną drogę!",
+    "task": "Przejdź test orientacji w terenie: Maks obraca Cię trzy razy z zamkniętymi oczami, a Ty wskazujesz kierunek Wisły oraz odpowiadasz na pytanie z Waszej wspólnej historii.",
+    "reward": "Kompas znad Wisły",
     "hasOblivionMusic": false,
     "isMystery": true,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/maks.webp"
   },
   {
     "id": "dawid_smietanski",
@@ -132,27 +141,15 @@ const campaignQuests = [
     "fixedPosition": 10,
     "npcName": "Dawid Śmietański",
     "npcTitle": "Szop Zagłady, Strażnik Tequili i Odwieczny Rywal",
-    "questTitle": "BOSS POŁOWY GRY: Krwawy Rewanż i Klątwa Mafii",
-    "lore": "Dotarłeś do 10. etapu! Przed Tobą Twój najlepszy przyjaciel – Szop Zagłady. W powietrzu wciąż unosi się echo Waszej legendarnej kłótni w Mafii i niewyrównanych rachunków w FIFIE. Na stole lśni Święty Graal dzisiejszej nocy: Butelka Tequili.",
-    "rhyme": "Dziesiąty przystanek, tu kończy się żart,\nSzop Zagłady sprawdza, ile jesteś wart!\nWspomnijcie kłótnię, gdy w Mafii padł cios,\nWyzwij Dawida i przypieczętuj swój los!",
-    "task": "BOSS FIGHT! 1. Zagraj z Dawidem rewanż w FIFĘ albo wybierzcie krótką mini-grę. 2. Przez 30 sekund odegrajcie rekonstrukcję legendarnej kłótni z Mafii. 3. Wznieście toast, jeśli obaj macie ochotę — może być bezalkoholowy. Tequila jest opcjonalnym rekwizytem, nie warunkiem zaliczenia.\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
-    "reward": "Łup Szopa Zagłady: symboliczna nagroda i tytuł Mistrza Rewanżu",
+    "questTitle": "BOSS POŁOWY GRY: Papier, Kamień, Nożyce",
+    "lore": "Dziesiąty przystanek to pojedynek z Dawidem Śmietańskim. Zamiast rozstrzygać dawne spory w FIFIE, stajecie naprzeciw siebie w klasycznej próbie papier–kamień–nożyce.",
+    "rhyme": "Dziesiąty przystanek, boss już na Ciebie czeka,\nPapier, kamień, nożyce — niech los nie zwleka!\nDo trzech wygranych, seria za serią,\nAż Twoje zwycięstwo zamknie tę batalię!",
+    "task": "Zagrajcie z Dawidem w papier–kamień–nożyce w formacie BO5 (do trzech wygranych). Jeśli Dawid wygra serię, rozpocznijcie następną — gracie, aż Janek wygra. Po każdej przegranej Janka przewidziany jest mały toast/shot; może to być napój bezalkoholowy albo symboliczny łyk. Wynik każdej serii zapisujcie na stronie.",
+    "reward": "Tytuł Mistrza Papieru, Kamienia i Nożyc",
     "hasOblivionMusic": false,
-    "isMystery": false
-  },
-  {
-    "id": "maks",
-    "pool": "random",
-    "npcName": "Maksymilian Kownacki (Maks)",
-    "npcTitle": "Nawigator znad Wisły i Tropiciel Sawanny",
-    "questTitle": "Kompas Zaginionego Wędrowca",
-    "lore": "Maks zna ścieżki, których nie ma na mapach, oraz takie, które dziwnym trafem zawsze prowadzą nad Wisłę. Posiada też tajemną wiedzę o florze i faunie gorących krain, która przyda Ci się w wielkim finale...",
-    "rhyme": "Gdy noc zapada nad brzegiem rzeki,\nPowrót do domu bywa daleki.\nWskaż strony świata, wytęż swą głowę,\nI zapamiętaj hasło finałowe!",
-    "task": "Przejdź test orientacji w terenie (Maks obraca Cię 3 razy z zamkniętymi oczami, a Ty musisz wskazać kierunek Wisły oraz odpowiedzieć na pytanie z Waszej wspólnej historii). UWAGA FABULARNA: Maks zdradzi Ci tajne hasło powiązane z gorącym biomem ('sawanna afrykańska') – zapamiętaj je na sam koniec gry!\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
-    "reward": "Kompas znad Wisły + Fragment Tajnego Hasła ('sawanna afrykańska')",
-    "hasOblivionMusic": false,
-    "isMystery": true,
-    "fixedPosition": null
+    "isMystery": false,
+    "portrait": "images/dawid_smietanski.webp",
+    "rpsChallenge": true
   },
   {
     "id": "natalia",
@@ -162,11 +159,12 @@ const campaignQuests = [
     "questTitle": "Pakt Pięciu Pytań w Cieniu Kominka",
     "lore": "W rogu tawerny siedzi postać spowita aurą tajemnicy. Nie otworzy przed Tobą swoich ksiąg za darmo – żąda wymiany sekretów za sekrety, jak przystało na wędrowców na szlaku.",
     "rhyme": "Nie znasz jej planów, nie znasz historii,\nZdobądź jej przychylność w drodze do glorii.\nPięć pytań zadasz i pięć sam przyjmiesz,\nNim z tego stołu nagrodę wyjmiesz!",
-    "task": "Wymiana ognia! Zadaj Natalii 3–5 szybkich, nietypowych pytań, a ona może zadać podobną liczbę Tobie. Odpowiadajcie szczerze, ale każdy może pominąć pytanie, na które nie chce odpowiadać.\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
+    "task": "Wymiana ognia! Zadaj Natalii 3–5 szybkich, nietypowych pytań, a ona może zadać podobną liczbę Tobie. Odpowiadajcie szczerze, ale każdy może pominąć pytanie, na które nie chce odpowiadać.",
     "reward": "Pieczęć Tawernianego Przymierza",
     "hasOblivionMusic": false,
     "isMystery": true,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/natalia.webp"
   },
   {
     "id": "vlada",
@@ -176,11 +174,12 @@ const campaignQuests = [
     "questTitle": "Zaginione Dokumenty Gildii Cieni",
     "lore": "Akta tej postaci zostały utajnione przez Wielki Archiwum (czytaj: nie dotarły gołębiem pocztowym przed startem misji). Vlada operuje w cieniu i sprawdza, czy potrafisz czytać między wierszami.",
     "rhyme": "Jej pergamin spłonął w tajemniczym ogniu,\nLecz sekret wciąż drzemie w jej bystrym spojrzeniu.\nOdczytaj jej gesty, rozwikłaj ten kod,\nBy ruszyć bezpiecznie za kolejny płot!",
-    "task": "Kalambury Cieni lub Szyfr: Vlada ma 45 sekund, żeby bez użycia słów pokazać Ci hasło związane z imprezą lub Tobą (albo zadać Ci zagadkę dedukcyjną). Musisz odgadnąć, o co chodzi!\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
+    "task": "Kalambury Cieni lub Szyfr: Vlada ma 45 sekund, żeby bez użycia słów pokazać Ci hasło związane z imprezą lub Tobą (albo zadać Ci zagadkę dedukcyjną). Musisz odgadnąć, o co chodzi!",
     "reward": "Zaszyfrowany Zwój zza Portalu",
     "hasOblivionMusic": false,
     "isMystery": true,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/vlada.webp"
   },
   {
     "id": "grzegorz_lyson",
@@ -190,11 +189,12 @@ const campaignQuests = [
     "questTitle": "Białe Plamy w Księdze Trzydziestolecia",
     "lore": "Kronikarz Grzegorz był tak pochłonięty spisywaniem dziejów świata, że zostawił w księdze Janka puste strony. Teraz to Ty musisz udowodnić, że Twoja pamięć po trzydziestce jeszcze nie szwankuje.",
     "rhyme": "Trzydzieści wiosen minęło jak dzień,\nCzy Twoja pamięć to światło, czy cień?\nKronikarz Grzegorz otwiera swój tom,\nDopisz historię, nim uderzy grom!",
-    "task": "Test Pamięci Oldboya: Grzegorz zadaje Ci szybkie wyzwanie pamięciowe (np. wymienienie w 30 sekund 5 rzeczy z lat 90./2000., które pamięta każdy 30-latek, lub odtworzenie kolejności 5 przedmiotów na stole po ich zakryciu).\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
+    "task": "Test Pamięci Oldboya: Grzegorz zadaje Ci szybkie wyzwanie pamięciowe (np. wymienienie w 30 sekund 5 rzeczy z lat 90./2000., które pamięta każdy 30-latek, lub odtworzenie kolejności 5 przedmiotów na stole po ich zakryciu).",
     "reward": "Pióro Zaginionego Kronikarza (+10 do Mądrości)",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/grzegorz_lyson.webp"
   },
   {
     "id": "grzegorz_szewczyk",
@@ -204,11 +204,12 @@ const campaignQuests = [
     "questTitle": "Trybunał Absurdalnego Quizu",
     "lore": "Mędrcy studiują gwiazdy, alchemicy złoto, a Arcymistrz Grzegorz gromadzi wiedzę tak dziwną i niepraktyczną, że zwykłym śmiertelnikom paruje od niej zbroja.",
     "rhyme": "Mądrość nie zawsze w księgach się chowa,\nCzasem wystarczy zagadka losowa.\nOdpowiedz Mistrzowi bez cienia wahania,\nAlbo wykonaj zadanie dla wyrównania!",
-    "task": "Grzegorz zadaje Ci 2 nieoczywiste pytania z wiedzy ogólnej lub imprezowej. Musisz trafić przynajmniej jedno albo wykonać zabawne, bezalkoholowe zadanie mędrca.\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
+    "task": "Grzegorz zadaje Ci 2 nieoczywiste pytania z wiedzy ogólnej lub imprezowej. Musisz trafić przynajmniej jedno albo wykonać zabawne, bezalkoholowe zadanie mędrca.",
     "reward": "Księga Zakazanej Wiedzy",
     "hasOblivionMusic": false,
     "isMystery": true,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/grzegorz_szewczyk.webp"
   },
   {
     "id": "sara",
@@ -218,11 +219,32 @@ const campaignQuests = [
     "questTitle": "Anomalia Czasoprzestrzenna: Improwizacja",
     "lore": "Natrafiłeś na Ukryty Poziom! Twórcy gry nie przewidzieli, co się tu wydarzy, ponieważ Strażniczka Sara rządzi się własnymi prawami fizyki i magii.",
     "rhyme": "Żaden poradnik nie powie Ci dziś,\nCo każe zrobić ta tajemna myśl.\nSara wymyśla regułę w tej chwili,\nZrób to z honorem, by wszyscy zobaczyli!",
-    "task": "Wildcard Quest! Sara ma pełną władzę: w tym momencie wymyśla dla Ciebie 30-sekundowe wyzwanie specjalne (toast w dziwnej pozycji, komplement dla każdego przy stole w stylu szekspirowskim lub szybki zakład). Przyjmij je bez mrugnięcia okiem!\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
+    "task": "Wildcard Quest! Sara ma pełną władzę: w tym momencie wymyśla dla Ciebie 30-sekundowe wyzwanie specjalne (toast w dziwnej pozycji, komplement dla każdego przy stole w stylu szekspirowskim lub szybki zakład). Przyjmij je bez mrugnięcia okiem!",
     "reward": "Klucz do Ukrytego Poziomu",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": null
+    "fixedPosition": null,
+    "portrait": "images/sara.webp"
+  },
+  {
+    "id": "kornelia",
+    "pool": "random",
+    "npcName": "Kornelia Zosiuk",
+    "npcTitle": "Bardka znad Sekwany i Mistrzyni Rytmu",
+    "questTitle": "Klątwa Francuskiego Języka i Tańca",
+    "lore": "Z dalekich krain elegancji i skomplikowanych głosek przybywa Kornelia. Aby zdobyć jej błogosławieństwo, musisz udowodnić, że Twój język i ciało potrafią współpracować pod presją.",
+    "rhyme": "Złóż usta w dzióbek, wymów 'croissant',\nNiech francuski akcent wypełni ten kąt!\nA jeśli język zaplącze się w supeł,\nZatańcz układzik, by zdobyć swój kufer!",
+    "task": "Powtórz bezbłędnie za Kornelią francuski łamaniec językowy z przesadnym francuskim akcentem ALBO odtwórz krótką, 15-sekundową choreografię, którą Ci pokaże. Gdy masz ochotę, zapytaj też o dodatkową próbę „Sekret lejka” — to opcjonalna droga po wskazówkę do finału.",
+    "reward": "Beret Barda (+10 do Elokwencji)",
+    "hasOblivionMusic": false,
+    "isMystery": false,
+    "fixedPosition": 16,
+    "portrait": "images/kornelia.webp",
+    "bonusQuest": {
+      "title": "Sekret lejka",
+      "description": "Dodatkowa, opcjonalna próba: jeśli Janek ma ochotę i jest to bezpieczne, może wypić całe piwo z lejka, by zdobyć od Kornelii wskazówkę do finałowego hasła. Możecie użyć piwa 0% lub innego napoju; wskazówka nie blokuje dalszej gry.",
+      "hint": "sawanna afrykańska"
+    }
   },
   {
     "id": "julka",
@@ -230,15 +252,15 @@ const campaignQuests = [
     "isFinal": true,
     "requiresPassword": true,
     "npcName": "Julia Kachan (Julka)",
-    "npcTitle": "Strażniczka Legendarnego Artefaktu i Pani Serca Jankeira",
-    "questTitle": "WIELKI FINAŁ: Rytuał Pięciu Żywiołów i Gramofon Przeznaczenia",
-    "lore": "Przeszedłeś przez ogień, leje piwne, obronę magisterską z rzygania i starcie z Szopem Zagłady. Przed Tobą ostatnia, najważniejsza Strażniczka – Julka. Za jej plecami spoczywa Legendarny Artefakt Poziomu 30, ale pieczęć puści dopiero wtedy, gdy wykażesz się kreatywnością i wypowiesz Zaklęcie Sawanny.",
+    "npcTitle": "Strażniczka Mrocznej Pieczęci i Pani Serca Jankeira",
+    "questTitle": "WIELKI FINAŁ: Rytuał Pięciu Żywiołów i Mroczna Pieczęć",
+    "lore": "Przeszedłeś przez wszystkie próby i dotarłeś do ostatniej Strażniczki — Julki. Za jej plecami spoczywa tajemniczy skarb z najgłębszego skarbca, szczelnie ukryty przed ciekawskimi spojrzeniami. Mroczna pieczęć ustąpi dopiero po wykonaniu finałowej próby i podaniu właściwego hasła.",
     "rhyme": "Szesnaście prób za Tobą, wędrowcze wspaniały,\nJuż bębny finału w oddali zagrały.\nZ pięciu przedmiotów zbuduj cud nowy,\nI wpisz w aplikację szyfr finałowy!",
-    "task": "1. Julka wręcza Ci 5 kompletnie losowych przedmiotów. Masz 2 minuty, by stworzyć z nich jeden 'funkcjonalny' wynalazek i zaprezentować jego działanie.\n2. Odpowiedz na ostatnie, osobiste pytanie od Julki.\n3. WPISZ TAJNE HASŁO w polu poniżej (podpowiedź miał dla Ciebie Maks!), aby odblokować Legendarny Artefakt!\n\nNa koniec zapytaj: „Co chciał(a)byś, żeby Janek powtórzył na tych urodzinach?”",
-    "reward": "LEGENDARNY ARTEFAKT: GRAMOFON + Tytuł Władcy Trzydziestolecia",
+    "task": "1. Julka wręcza Ci pięć losowych przedmiotów. Masz dwie minuty, by stworzyć z nich jeden „funkcjonalny” wynalazek i zaprezentować jego działanie.\n2. Odpowiedz na ostatnie, osobiste pytanie od Julki.\n3. Wpisz tajne hasło w polu poniżej, aby złamać pieczęć i odkryć zawartość skarbca.",
+    "reward": "Tajemniczy skarb z najgłębszego skarbca",
     "hasOblivionMusic": false,
     "isMystery": false,
-    "fixedPosition": 17
+    "fixedPosition": 17,
+    "portrait": "images/julka.webp"
   }
 ];
-
