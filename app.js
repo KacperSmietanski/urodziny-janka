@@ -12,6 +12,7 @@ const defaults = () => ({
   korneliaHint: false,
   charades: { startedAt: null, success: false, expired: false },
   tongueTwister: { attempts: 0, success: false, penalty: false },
+  scienceTrivia: { unknown: 0, total: 0, facts: [] },
   rps: { janekWins: 0, dawidWins: 0, totalLosses: 0, seriesLosses: 0, pendingToast: false }
 });
 
@@ -25,6 +26,8 @@ try {
   state.rps = { ...defaults().rps, ...(state.rps || {}) };
   state.charades = { ...defaults().charades, ...(state.charades || {}) };
   state.tongueTwister = { ...defaults().tongueTwister, ...(state.tongueTwister || {}) };
+  state.scienceTrivia = { ...defaults().scienceTrivia, ...(state.scienceTrivia || {}) };
+  state.scienceTrivia.facts = Array.isArray(state.scienceTrivia.facts) ? state.scienceTrivia.facts : [];
   const saved = new Set(Array.isArray(state.done) ? state.done : []);
   state.done = [];
   for (const quest of quests) {
@@ -66,6 +69,17 @@ function showHintVideoDialog() {
   el('hintVideo').play().catch(() => {});
 }
 
+function scrollToActiveQuest() {
+  requestAnimationFrame(() => document.querySelector('#questList .active-quest')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+}
+
+function drawScienceTrivia() {
+  const challenge = state.scienceTrivia;
+  const facts = challenge.facts.map((fact, index) => `<li>${escapeHtml(fact.text)} <span>${fact.known ? 'Grzegorz znał' : 'Grzegorz nie znał'}</span></li>`).join('');
+  if (challenge.unknown >= 3) return `<section class="bonus-quest"><div class="task-label">Ciekawostki zaliczone</div><p>Grzegorz nie znał już trzech faktów.</p><ol class="science-facts">${facts}</ol></section>`;
+  return `<section class="bonus-quest science-quest"><div class="task-label">Nieznane fakty · ${challenge.unknown}/3</div><label for="scienceFactInput">Opowiedz ciekawostkę naukową, a potem zapiszcie odpowiedź Grzegorza</label><textarea class="field" id="scienceFactInput" maxlength="240" placeholder="Wpisz krótką ciekawostkę"></textarea><div class="rps-buttons"><button class="btn" id="scienceKnown" disabled>Znał</button><button class="btn primary" id="scienceUnknown" disabled>Nie znał</button></div><ol class="science-facts">${facts}</ol></section>`;
+}
+
 function activeQuestHtml(quest, index) {
   const isFinal = quest.isFinal === true;
   const videoLink = quest.youtubeUrl
@@ -75,13 +89,13 @@ function activeQuestHtml(quest, index) {
     <label for="passwordInput">Hasło finału</label>
     <div class="answer-row"><input class="field" id="passwordInput" placeholder="Wpisz hasło finału" autocomplete="off"><button class="btn" id="checkPassword">Sprawdź hasło</button></div>
     <div class="status" id="passwordStatus" aria-live="polite">${state.finale ? '✦ Pieczęć pękła. W skarbcu czeka gramofon.' : 'Rozbij mroczną pieczęć właściwym hasłem.'}</div>
-    ${state.finale ? '<div class="final-video"><strong>Odnaleziony skarb · Sto lat</strong><video id="finalVideo" controls playsinline preload="metadata"><source src="media/sto-lat.mp4" type="video/mp4">Twoja przeglądarka nie obsługuje filmu.</video></div>' : ''}
+    ${state.finale ? '<div class="final-reveal"><strong>Pieczęć pękła. Popatrz, co skrywał skarbiec.</strong><img src="media/jankowy-skarb.png" alt="Janek odpoczywa pod biało-czerwoną flagą"><video class="final-song" id="finalSong" aria-label="Sto lat" playsinline preload="auto"><source src="media/sto-lat.mp4" type="video/mp4"></video><span class="hint">W tle gra „Sto lat”.</span></div>' : ''}
   </div>` : '';
   const bonus = quest.bonusQuest ? `<section class="bonus-quest"><div class="task-label">Quest poboczny · ${escapeHtml(quest.bonusQuest.title)}</div><p>${textBlock(quest.bonusQuest.description)}</p>${state.korneliaHint ? `<div class="revealed-hint"><strong>Wskazówka do finału</strong><span>${escapeHtml(quest.bonusQuest.hint)}</span></div><button class="btn" id="openHintVideo">Odtwórz filmik</button>` : `<button class="btn" id="revealHint">Ukończyliśmy próbę — pokaż wskazówkę</button>`}</section>` : '';
   const rps = quest.rpsChallenge ? drawRps() : '';
   const sideQuest = quest.sideQuest ? `<section class="bonus-quest"><div class="task-label">Dodatkowy quest</div><p>${textBlock(quest.sideQuest)}</p></section>` : '';
-  const challenge = quest.charadesChallenge ? drawCharades() : quest.tongueTwisterChallenge ? drawTongueTwister() : '';
-  const challengeReady = (!quest.charadesChallenge || state.charades.success) && (!quest.tongueTwisterChallenge || state.tongueTwister.success || state.tongueTwister.penalty);
+  const challenge = quest.charadesChallenge ? drawCharades() : quest.tongueTwisterChallenge ? drawTongueTwister() : quest.scienceTriviaChallenge ? drawScienceTrivia() : '';
+  const challengeReady = (!quest.charadesChallenge || state.charades.success) && (!quest.tongueTwisterChallenge || state.tongueTwister.success || state.tongueTwister.penalty) && (!quest.scienceTriviaChallenge || state.scienceTrivia.unknown >= 3);
   const canComplete = (!isFinal || state.finale) && !quest.rpsChallenge && challengeReady;
   const completionButton = quest.rpsChallenge ? '' : `<button class="btn primary" id="completeQuest" ${canComplete ? '' : 'disabled'}>Wykonałem questa</button>`;
   const completionHint = isFinal && !state.finale ? 'Najpierw wpisz hasło finału.' : quest.charadesChallenge && !state.charades.success ? 'Vlada musi odgadnąć hasło przed upływem minuty.' : quest.tongueTwisterChallenge && !challengeReady ? 'Najpierw ukończ próbę łamańca.' : '';
@@ -156,7 +170,8 @@ function drawQuests() {
   const activeQuest = quests[currentIndex];
   let active;
   if (!activeQuest) {
-    active = `<article class="quest finale completed-finale"><div class="eyebrow">Kampania ukończona</div><h3>Skarb z najgłębszego skarbca zdobyty!</h3><p>Za mroczną pieczęcią czekał gramofon. Filmik „Sto lat” został odtworzony. Wszystkie questy z Kronik Janka są zaliczone.</p></article>`;
+    const map = quests.map((quest, index) => `<div class="map-guest"><img src="${escapeHtml(quest.portrait)}" alt=""><span>${String(index + 1).padStart(2, '0')} · ${escapeHtml(quest.npcName)}</span></div>`).join('');
+    active = `<article class="quest finale completed-finale"><div class="eyebrow">Kampania ukończona</div><h3>Skarb z najgłębszego skarbca czeka na odkrycie</h3><p>Wszystkie questy z Kronik Janka są zaliczone. Teraz odkryj sam, co kryje skarbiec.</p><div class="final-reveal"><img src="media/jankowy-skarb.png" alt="Janek odpoczywa pod biało-czerwoną flagą"><video class="final-song" id="finalSong" aria-label="Sto lat" playsinline preload="auto"><source src="media/sto-lat.mp4" type="video/mp4"></video><span class="hint">W tle gra „Sto lat”.</span></div><section class="final-map"><h4>Mapa wyprawy</h4><p>Wznieś toast ze wszystkimi i wygłoś mowę o swoich 30 latach życia.</p><div class="map-guests">${map}</div></section></article>`;
   } else if (state.pendingToast === activeQuest.id) {
     active = toastScreen(activeQuest, currentIndex);
   } else {
@@ -169,9 +184,10 @@ function drawQuests() {
     const quest = quests[state.done.length];
     if (!quest || quest.rpsChallenge || (quest.isFinal && !state.finale)
       || (quest.charadesChallenge && !state.charades.success)
-      || (quest.tongueTwisterChallenge && !state.tongueTwister.success && !state.tongueTwister.penalty)) return;
+      || (quest.tongueTwisterChallenge && !state.tongueTwister.success && !state.tongueTwister.penalty)
+      || (quest.scienceTriviaChallenge && state.scienceTrivia.unknown < 3)) return;
     state.pendingToast = quest.id; state.toastDraft = ''; save(); render();
-    document.getElementById('quest-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    scrollToActiveQuest();
   };
 
   const toastDraft = el('toastDraft');
@@ -184,8 +200,9 @@ function drawQuests() {
       state.toastHistory.push({ id: quest.id, text: state.toastDraft.trim() });
       state.done.push(quest.id); state.pendingToast = null; state.toastDraft = '';
       save(); render();
+      scrollToActiveQuest();
+      if (state.done.length === quests.length) el('finalSong')?.play().catch(() => {});
       toast(state.done.length === quests.length ? 'Kampania ukończona!' : 'Toast wzniesiony — odkryto następny quest!');
-      document.getElementById('quest-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
   }
 
@@ -198,9 +215,8 @@ function drawQuests() {
       const status = el('passwordStatus');
       if (normalized === 'sawannaafrykenska') {
         state.finale = true; save(); render(); playMusic(true);
-        const video = el('finalVideo');
-        if (video) video.play().catch(() => {});
-        toast('Mroczna pieczęć pękła — filmik „Sto lat” i skarb odkryte!');
+        el('finalSong')?.play().catch(() => {});
+        toast('Mroczna pieczęć pękła — fotografia skarbca odkryta!');
       } else {
         status.className = 'status error';
         status.textContent = 'To jeszcze nie to hasło. Spróbuj ponownie.';
@@ -242,6 +258,26 @@ function drawQuests() {
     state.tongueTwister.penalty = true; save(); render(); toast('Próba zaliczona po konsekwencji');
   };
 
+  const scienceInput = el('scienceFactInput');
+  if (scienceInput) {
+    const updateScienceButtons = () => {
+      const disabled = !scienceInput.value.trim();
+      el('scienceKnown').disabled = disabled;
+      el('scienceUnknown').disabled = disabled;
+    };
+    scienceInput.oninput = updateScienceButtons;
+    const recordFact = known => {
+      const fact = scienceInput.value.trim();
+      if (!fact) return;
+      state.scienceTrivia.facts.push({ text: fact, known });
+      state.scienceTrivia.total += 1;
+      if (!known) state.scienceTrivia.unknown += 1;
+      save(); render();
+    };
+    el('scienceKnown').onclick = () => recordFact(true);
+    el('scienceUnknown').onclick = () => recordFact(false);
+  }
+
   if (el('janekRound')) el('janekRound').onclick = () => recordRps('janek');
   if (el('dawidRound')) el('dawidRound').onclick = () => recordRps('dawid');
   if (el('lossToastCheck')) {
@@ -265,10 +301,12 @@ function recordRps(winner) {
     if (state.rps.janekWins === 3) {
       const quest = quests[state.done.length];
       if (quest?.rpsChallenge) {
-        state.done.push(quest.id);
+        state.pendingToast = quest.id;
+        state.toastDraft = '';
         state.rps = { ...defaults().rps, totalLosses: state.rps.totalLosses, seriesLosses: state.rps.seriesLosses };
         save(); render();
-        toast('BO5 wygrane — quest zaliczony! Toast z Dawidem wzniesiony.');
+        scrollToActiveQuest();
+        toast('BO5 wygrane — wznosicie toast z Dawidem!');
         return;
       }
     }
@@ -323,7 +361,7 @@ el('addItem').onclick = () => {
   state.bag.push(item.slice(0, 45)); el('itemInput').value = ''; save(); render(); toast('Dodano do ekwipunku');
 };
 el('itemInput').onkeydown = event => { if (event.key === 'Enter') el('addItem').click(); };
-el('beginBtn').onclick = () => el('quest-section').scrollIntoView({ behavior: 'smooth' });
+el('beginBtn').onclick = () => scrollToActiveQuest();
 el('resetBtn').onclick = () => {
   if (!confirm('Zacząć od nowa? Postęp i ekwipunek zostaną wyczyszczone.')) return;
   state = defaults(); save(); render(); playMusic(false); toast('Nowy dziennik gotowy');
