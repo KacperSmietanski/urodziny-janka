@@ -77,7 +77,7 @@ function activeQuestHtml(quest, index) {
     <div class="task-label">Twoje zadanie</div><p class="task">${textBlock(quest.task)}</p>${videoLink}${rps}${bonus}
     <div class="reward"><span>Nagroda</span><strong>${escapeHtml(quest.reward)}</strong></div>
     ${passwordGate}
-    <div class="quest-foot"><span class="hint">${canComplete ? 'Po queście napiszesz toast z uczestnikiem, zanim odkryje się dalsza droga.' : quest.rpsChallenge && state.rps.dawidWins >= 3 ? 'Dawid wygrał serię — zagrajcie kolejną, aż Janek zwycięży.' : 'Najpierw wpisz hasło finału.'}</span><button class="btn primary" id="completeQuest" ${canComplete ? '' : 'disabled'}>Wykonałem questa</button></div>
+    <div class="quest-foot"><span class="hint">${canComplete ? 'Po queście napijesz toast z uczestnikiem, zanim odkryje się dalsza droga.' : quest.rpsChallenge && state.rps.dawidWins >= 3 ? 'Dawid wygrał serię — zagrajcie kolejną, aż Janek zwycięży.' : 'Najpierw wpisz hasło finału.'}</span><button class="btn primary" id="completeQuest" ${canComplete ? '' : 'disabled'}>Wykonałem questa</button></div>
   </article>`;
 }
 
@@ -86,7 +86,7 @@ function drawRps() {
   const losses = state.rps.dawidWins;
   const seriesWon = wins >= 3;
   const seriesLost = losses >= 3;
-  const penalty = state.rps.pendingToast ? `<div class="rps-penalty"><strong>Przegrana runda zapisana.</strong><p>Wznieście mały toast przed dalszą grą — napój bezalkoholowy lub symboliczny łyk też jest w porządku.</p><label><input type="checkbox" id="lossToastCheck"> Toast po rundzie wzniesiony</label><button class="btn" id="ackLossToast" disabled>Wróć do pojedynku</button></div>` : '';
+  const penalty = state.rps.pendingToast ? `<div class="rps-penalty"><strong>Przegrana runda zapisana.</strong><p>Wznieście mały toast przed dalszą grą — napój alkoholowy lub symboliczny łyk też jest w porządku.</p><label><input type="checkbox" id="lossToastCheck"> Toast po rundzie wzniesiony</label><button class="btn" id="ackLossToast" disabled>Wróć do pojedynku</button></div>` : '';
   const controls = seriesWon
     ? '<div class="status">🏆 Janek wygrał serię! Pojedynek zaliczony.</div>'
     : seriesLost
@@ -99,9 +99,9 @@ function toastScreen(quest, index) {
   return `<article class="quest active-quest toast-screen"><div class="quest-num">Quest ${index + 1} · Toast przed kolejną kartą</div>
     <img class="portrait" src="${escapeHtml(quest.portrait)}" alt="Portret: ${escapeHtml(quest.npcName)}">
     <div class="npc-name">Toast z ${escapeHtml(quest.npcName)}</div><h3>Wznieście toast, zanim wyruszysz dalej</h3>
-    <p class="lore">Napisz krótkie, własne życzenia dla uczestnika questa. Potem wznieście toast wybranym napojem i potwierdźcie poniżej. Może być bezalkoholowy albo symboliczny — liczy się wspólny moment.</p>
+    <p class="lore">Napisz krótkie, własne życzenia dla uczestnika questa. Potem wznieście toast wybranym napojem i potwierdźcie poniżej. Może być alkoholowy albo symboliczny — liczy się wspólny moment.</p>
     <label class="task-label" for="toastDraft">Twój toast</label><textarea class="field toast-draft" id="toastDraft" maxlength="240" placeholder="Za co wznosicie toast?">${escapeHtml(state.toastDraft)}</textarea>
-    <label class="toast-confirm"><input type="checkbox" id="toastDoneCheck"> Wznieśliśmy toast i wypiliśmy wybrany napój (także bezalkoholowy)</label>
+    <label class="toast-confirm"><input type="checkbox" id="toastDoneCheck"> Wznieśliśmy toast i wypiliśmy wybrany napój (także alkoholowy)</label>
     <button class="btn primary toast-continue" id="continueAfterToast" disabled>Toast wzniesiony — odkryj dalej</button>
   </article>`;
 }
@@ -232,3 +232,4 @@ playMusic();
 el('soundBtn').onclick = () => { playMusic(); toast('Odtwarzacz muzyki uruchomiony'); };
 
 render();
+
