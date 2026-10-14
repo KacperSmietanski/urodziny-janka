@@ -14,6 +14,6 @@ Otwórz `index.html` w przeglądarce albo opublikuj repozytorium przez GitHub Pa
 - Dawid Śmietański prowadzi pojedynek papier–kamień–nożyce BO5 aż do zwycięstwa Janka.
 - Kornelia może ujawnić wskazówkę do finałowego hasła po opcjonalnym queście pobocznym.
 - W finale hasło „sawanna afrykańska” otwiera mroczną pieczęć i uruchamia finałowy utwór.
-- Toasty i próby napojowe mogą być bezalkoholowe lub symboliczne; w ekwipunku jest też licznik wody.
+- Toasty i próby napojowe mogą być alkoholowe lub symboliczne; w ekwipunku jest też licznik wody.
 
 Postęp pozostaje na urządzeniu i przeglądarce Janka. YouTube i zewnętrzny krój pisma wymagają internetu.
