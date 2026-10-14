@@ -79,7 +79,7 @@ function activeQuestHtml(quest, index) {
     <div class="task-label">Twoje zadanie</div><p class="task">${textBlock(quest.task)}</p>${videoLink}${rps}${bonus}
     <div class="reward"><span>Nagroda</span><strong>${escapeHtml(quest.reward)}</strong></div>
     ${passwordGate}
-    <div class="quest-foot"><span class="hint">${canComplete ? 'Po queście napijesz się toastu z uczestnikiem, zanim odkryje się dalsza droga.' : quest.rpsChallenge && state.rps.dawidWins >= 3 ? 'Dawid wygrał serię — zagrajcie kolejną, aż Janek zwycięży.' : 'Najpierw wpisz hasło finału.'}</span><button class="btn primary" id="completeQuest" ${canComplete ? '' : 'disabled'}>Wykonałem questa</button></div>
+    <div class="quest-foot"><span class="hint">${canComplete ? 'Po queście napiszesz toast wspólnie z uczestnikiem. Dopiero po jego wzniesieniu odkryje się dalsza droga.' : quest.rpsChallenge && state.rps.dawidWins >= 3 ? 'Dawid wygrał serię — zagrajcie kolejną, aż Janek zwycięży.' : 'Najpierw wpisz hasło finału.'}</span><button class="btn primary" id="completeQuest" ${canComplete ? '' : 'disabled'}>Wykonałem questa</button></div>
   </article>`;
 }
 
