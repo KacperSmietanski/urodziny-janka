@@ -160,7 +160,7 @@ const campaignQuests = [
     "questTitle": "Pakt Pięciu Pytań w Cieniu Kominka",
     "lore": "W rogu tawerny siedzi postać spowita aurą tajemnicy. Nie otworzy przed Tobą swoich ksiąg za darmo – żąda wymiany sekretów za sekrety, jak przystało na wędrowców na szlaku.",
     "rhyme": "Nie znasz jej planów, nie znasz historii,\nZdobądź jej przychylność w drodze do glorii.\nPięć pytań zadasz i pięć sam przyjmiesz,\nNim z tego stołu nagrodę wyjmiesz!",
-    "task": "Przeprowadźcie rozmowę, która pomoże Wam lepiej się poznać: zadajcie sobie po 5 pytań, które Was do siebie zbliżą. Janek robi 5 pompek; po każdej może wziąć mały łyk piwa albo innego wybranego napoju. Każdy może pominąć pytanie lub zrezygnować z picia.",
+    "task": "Przeprowadźcie rozmowę, która pomoże Wam lepiej się poznać: zadajcie sobie po 5 pytań, które Was do siebie zbliżą.\n\nPo zadanych pytaniach, Janek musi zrobić 5 pompek i po każdej pompce wziąć łyk piwa. Dopiero wtedy będzie zaliczony quest.",
     "reward": "Pieczęć Tawernianego Przymierza",
     "hasOblivionMusic": false,
     "isMystery": true,
@@ -188,15 +188,16 @@ const campaignQuests = [
     "pool": "random",
     "npcName": "Grzegorz Łysoń",
     "npcTitle": "Zaginiony Kronikarz Dawnych Dziejów",
-    "questTitle": "Białe Plamy w Księdze Trzydziestolecia",
-    "lore": "Kronikarz Grzegorz był tak pochłonięty spisywaniem dziejów świata, że zostawił w księdze Janka puste strony. Teraz to Ty musisz udowodnić, że Twoja pamięć po trzydziestce jeszcze nie szwankuje.",
-    "rhyme": "Trzydzieści wiosen minęło jak dzień,\nCzy Twoja pamięć to światło, czy cień?\nKronikarz Grzegorz otwiera swój tom,\nDopisz historię, nim uderzy grom!",
-    "task": "Test Pamięci Oldboya: Grzegorz zadaje Ci szybkie wyzwanie pamięciowe (np. wymienienie w 30 sekund 5 rzeczy z lat 90./2000., które pamięta każdy 30-latek, lub odtworzenie kolejności 5 przedmiotów na stole po ich zakryciu).",
+    "questTitle": "Laboratorium Nieznanych Ciekawostek",
+    "lore": "Grzegorz Łysoń jest strażnikiem wiedzy. Przedstawiaj mu naukowe ciekawostki i sprawdź, czy zdołasz zaskoczyć go trzy razy.",
+    "rhyme": "Fakt naukowy niech zabrzmi dziś,\nCzy Grzesiek zna go? Zaraz się wyjaśni.\nTrzy razy zdziw go wiedzą nową,\nA dalsza droga stanie przed Tobą!",
+    "task": "Opowiedz Grzegorzowi ciekawostki naukowe. Po każdej zaznaczcie, czy Grzesiek ją znał, czy nie znał. Zbierz 3 ciekawostki, których nie znał, aby zaliczyć questa.",
     "reward": "Pióro Zaginionego Kronikarza (+10 do Mądrości)",
     "hasOblivionMusic": false,
     "isMystery": false,
     "fixedPosition": null,
-    "portrait": "images/grzegorz_lyson.webp"
+    "portrait": "images/grzegorz_lyson.webp",
+    "scienceTriviaChallenge": true
   },
   {
     "id": "grzegorz_szewczyk",
@@ -245,7 +246,7 @@ const campaignQuests = [
     "tongueTwisterChallenge": true,
     "bonusQuest": {
       "title": "Sekret lejka",
-      "description": "Dodatkowy quest: po wykonaniu wspólnej próby napoju z lejka Kornelia otworzy filmik z podpowiedzią do finału. Możecie wybrać dowolny napój lub symboliczny wariant.",
+      "description": "Dodatkowy quest: wypij całe piwo z lejka otrzymanego od Patryka we wcześniejszych zadaniach, gdy to wykonasz, otrzymasz kluczową podpowiedź do ostatniego zadania. To dobrowolna próba — Janek może wybrać mały łyk albo wariant symboliczny i przerwać w dowolnym momencie.",
       "hint": "Odtwórz filmik, by zobaczyć podpowiedź do finału."
     }
   },
