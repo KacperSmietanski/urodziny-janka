@@ -88,7 +88,7 @@ function activeQuestHtml(quest, index) {
   const passwordGate = isFinal ? `<div class="password-gate">
     <label for="passwordInput">Hasło finału</label>
     <div class="answer-row"><input class="field" id="passwordInput" placeholder="Wpisz hasło finału" autocomplete="off"><button class="btn" id="checkPassword">Sprawdź hasło</button></div>
-    <div class="status" id="passwordStatus" aria-live="polite">${state.finale ? '✦ Pieczęć pękła. W skarbcu czeka gramofon.' : 'Rozbij mroczną pieczęć właściwym hasłem.'}</div>
+    <div class="status" id="passwordStatus" aria-live="polite">${state.finale ? '✦ Pieczęć pękła. Skarb czeka na odkrycie.' : 'Rozbij mroczną pieczęć właściwym hasłem.'}</div>
     ${state.finale ? '<div class="final-reveal"><strong>Pieczęć pękła. Popatrz, co skrywał skarbiec.</strong><img src="media/jankowy-skarb.png" alt="Janek odpoczywa pod biało-czerwoną flagą"><video class="final-song" id="finalSong" aria-label="Sto lat" playsinline preload="auto"><source src="media/sto-lat.mp4" type="video/mp4"></video><span class="hint">W tle gra „Sto lat”.</span></div>' : ''}
   </div>` : '';
   const bonus = quest.bonusQuest ? `<section class="bonus-quest"><div class="task-label">Quest poboczny · ${escapeHtml(quest.bonusQuest.title)}</div><p>${textBlock(quest.bonusQuest.description)}</p>${state.korneliaHint ? `<div class="revealed-hint"><strong>Wskazówka do finału</strong><span>${escapeHtml(quest.bonusQuest.hint)}</span></div><button class="btn" id="openHintVideo">Odtwórz filmik</button>` : `<button class="btn" id="revealHint">Ukończyliśmy próbę — pokaż wskazówkę</button>`}</section>` : '';
