@@ -4,7 +4,7 @@ Mobilna, statyczna kampania RPG na urodziny Janka. Działa w nowoczesnej przegl�
 
 ## Uruchomienie
 
-Otwórz `index.html` w przeglądarce albo opublikuj repozytorium przez GitHub Pages. Postęp, toasty, ekwipunek i liczniki zapisują się lokalnie w przeglądarce na urządzeniu. Po zaliczeniu questa Janek pisze toast i potwierdza jego wzniesienie, zanim odkryje się następna karta. Muzyka z YouTube startuje automatycznie, o ile przeglądarka na to pozwoli; na telefonie może być potrzebne dotknięcie przycisku odtwarzania.
+Otwórz `index.html` w przeglądarce albo opublikuj repozytorium przez GitHub Pages. Postęp, toasty, ekwipunek, artefakty i liczniki zapisują się lokalnie w przeglądarce na urządzeniu. Po standardowych questach Janek pisze toast i potwierdza jego wzniesienie, zanim odkryje się następna karta. Muzyka z YouTube startuje automatycznie, o ile przeglądarka na to pozwoli; na telefonie może być potrzebne dotknięcie przycisku odtwarzania.
 
 ## Kampania
 
@@ -12,8 +12,11 @@ Otwórz `index.html` w przeglądarce albo opublikuj repozytorium przez GitHub Pa
 - Patryk Kawiak jest piąty, Dawid Śmietański dziesiąty, Kornelia przedostatnia, a Julia Kachan prowadzi finał.
 - Quest Dawida Budziłka zawiera link do wskazanego filmu YouTube.
 - Dawid Śmietański prowadzi pojedynek papier–kamień–nożyce BO5 aż do zwycięstwa Janka.
-- Kornelia może ujawnić wskazówkę do finałowego hasła po opcjonalnym queście pobocznym.
-- W finale hasło „sawanna afrykańska” otwiera mroczną pieczęć i uruchamia finałowy utwór.
+- Vlada prowadzi minutowe kalambury, a Kornelia trzy próby łamańca językowego.
+- Kornelia może odtworzyć filmik z podpowiedzią po queście pobocznym.
+- Finałowe hasło „sawanna afrykeńska” otwiera mroczną pieczęć, filmik „Sto lat” i finałowy utwór.
+- Film `media/sto-lat.mp4` jest używany jako podpowiedź i finałowa nagroda.
 - Toasty i próby napojowe są opisane fabularnie; dziennik, przedmioty i liczniki zapisują się lokalnie.
 
 Postęp pozostaje na urządzeniu i przeglądarce Janka. YouTube i zewnętrzny krój pisma wymagają internetu.
+
