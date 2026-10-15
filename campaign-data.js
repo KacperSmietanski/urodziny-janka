@@ -107,7 +107,7 @@ const campaignQuests = [
     "fixedPosition": null,
     "portrait": "images/kacper.webp",
     "gymLiftChallenge": true,
-    "sideQuest": "Po partyjce w beer ponga idźcie wspólnie na siłownię. Janek podejmuje próbę podniesienia ciężaru większego niż Kacper — wybierzcie wyłącznie bezpieczny ciężar i przerwijcie, jeśli próba jest niekomfortowa. Jeśli siłownia lub próba nie są bezpieczne, ustalcie z Kacprem lekki zamiennik."
+    "sideQuest": "Po beer pongu idźcie wspólnie na siłownię. Janek podejmuje kontrolowaną próbę z ciężarem większym niż Kacper. Nie sprawdzajcie maksymalnego ciężaru; wybierzcie bezpieczne obciążenie."
   },
   {
     "id": "mati",
