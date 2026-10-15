@@ -12,7 +12,8 @@ const campaignQuests = [
     "hasOblivionMusic": false,
     "isMystery": false,
     "fixedPosition": null,
-    "portrait": "images/izak.webp"
+    "portrait": "images/izak.jpg",
+    "billiardsChallenge": true
   },
   {
     "id": "aga",
@@ -27,7 +28,7 @@ const campaignQuests = [
     "hasOblivionMusic": false,
     "isMystery": false,
     "fixedPosition": null,
-    "portrait": "images/aga.webp"
+    "portrait": "images/aga.jpg"
   },
   {
     "id": "paula",
@@ -58,7 +59,7 @@ const campaignQuests = [
     "hasOblivionMusic": false,
     "isMystery": false,
     "fixedPosition": null,
-    "portrait": "images/nikodem.webp"
+    "portrait": "images/nikodem.jpg"
   },
   {
     "id": "patryk",
@@ -73,7 +74,7 @@ const campaignQuests = [
     "hasOblivionMusic": true,
     "isMystery": false,
     "fixedPosition": 5,
-    "portrait": "images/patryk.webp"
+    "portrait": "images/patryk.jpg"
   },
   {
     "id": "dawid_budzilek",
@@ -89,7 +90,7 @@ const campaignQuests = [
     "hasOblivionMusic": false,
     "isMystery": false,
     "fixedPosition": null,
-    "portrait": "images/dawid_budzilek.webp"
+    "portrait": "images/dawid_budzilek.jpg"
   },
   {
     "id": "kacper",
@@ -104,7 +105,9 @@ const campaignQuests = [
     "hasOblivionMusic": false,
     "isMystery": false,
     "fixedPosition": null,
-    "portrait": "images/kacper.webp"
+    "portrait": "images/kacper.webp",
+    "gymLiftChallenge": true,
+    "sideQuest": "Po partyjce w beer ponga idźcie wspólnie na siłownię. Janek podejmuje próbę podniesienia ciężaru większego niż Kacper — wybierzcie wyłącznie bezpieczny ciężar i przerwijcie, jeśli próba jest niekomfortowa. Jeśli siłownia lub próba nie są bezpieczne, ustalcie z Kacprem lekki zamiennik."
   },
   {
     "id": "mati",
@@ -129,7 +132,7 @@ const campaignQuests = [
     "questTitle": "Kompas Zaginionego Wędrowca",
     "lore": "Maks zna ścieżki, których nie ma na mapach, oraz takie, które dziwnym trafem zawsze prowadzą nad Wisłę.",
     "rhyme": "Gdy noc zapada nad brzegiem rzeki,\nPowrót do domu bywa daleki.\nWskaż strony świata, wytęż swą głowę,\nI odnajdź bezpieczną drogę!",
-    "task": "Przejdź test orientacji w terenie: Maks obraca Cię trzy razy z zamkniętymi oczami, a Ty wskazujesz kierunek Wisły oraz odpowiadasz na pytanie z Waszej wspólnej historii.",
+    "task": "Przejdź test orientacji w terenie: Maks obraca Cię 10 razy z zamkniętymi oczami, a Ty wskazujesz kierunek Wisły oraz odpowiadasz na pytanie z Waszej wspólnej historii. Zróbcie to z asekuracją, w bezpiecznym miejscu; przerwijcie, jeśli pojawią się zawroty głowy.",
     "reward": "Kompas znad Wisły",
     "hasOblivionMusic": false,
     "isMystery": true,
@@ -207,12 +210,13 @@ const campaignQuests = [
     "questTitle": "Trybunał Absurdalnego Quizu",
     "lore": "Mędrcy studiują gwiazdy, alchemicy złoto, a Arcymistrz Grzegorz gromadzi wiedzę tak dziwną i niepraktyczną, że zwykłym śmiertelnikom paruje od niej zbroja.",
     "rhyme": "Mądrość nie zawsze w księgach się chowa,\nCzasem wystarczy zagadka losowa.\nOdpowiedz Mistrzowi bez cienia wahania,\nAlbo wykonaj zadanie dla wyrównania!",
-    "task": "Grzegorz zadaje Ci 2 nieoczywiste pytania z wiedzy ogólnej lub imprezowej. Musisz trafić przynajmniej jedno albo wykonać zabawne, alkoholowe zadanie mędrca.",
+    "task": "Grzegorz zadaje Ci 5 pytań. Po każdym zaznacz, czy odpowiedź była poprawna, czy niepoprawna. Musisz odpowiedzieć poprawnie na 3 pytania. Jeśli dwa razy klikniesz „Niepoprawnie”, natychmiast pojawi się dodatkowa próba z balią — ukończ ją, aby zaliczyć questa. Do jacuzzi wchodź spokojnie, bez skakania; jeśli nie jest dostępne lub bezpieczne, ustalcie bezpieczny zamiennik.",
     "reward": "Księga Zakazanej Wiedzy",
     "hasOblivionMusic": false,
     "isMystery": true,
     "fixedPosition": null,
-    "portrait": "images/grzegorz_szewczyk.webp"
+    "portrait": "images/grzegorz_szewczyk.webp",
+    "quizChallenge": true
   },
   {
     "id": "sara",
@@ -242,7 +246,7 @@ const campaignQuests = [
     "hasOblivionMusic": false,
     "isMystery": false,
     "fixedPosition": 16,
-    "portrait": "images/kornelia.webp",
+    "portrait": "images/kornelia.jpg",
     "tongueTwisterChallenge": true,
     "bonusQuest": {
       "title": "Sekret lejka",

@@ -13,6 +13,9 @@ const defaults = () => ({
   charades: { startedAt: null, success: false, expired: false },
   tongueTwister: { attempts: 0, success: false, penalty: false },
   scienceTrivia: { unknown: 0, total: 0, facts: [] },
+  billiards: { streak: 0, done: false },
+  gymLift: { done: false },
+  quizChallenge: { asked: 0, correct: 0, incorrect: 0, baliaRequired: false, baliaDone: false },
   rps: { janekWins: 0, dawidWins: 0, totalLosses: 0, seriesLosses: 0, pendingToast: false }
 });
 
@@ -28,6 +31,9 @@ try {
   state.tongueTwister = { ...defaults().tongueTwister, ...(state.tongueTwister || {}) };
   state.scienceTrivia = { ...defaults().scienceTrivia, ...(state.scienceTrivia || {}) };
   state.scienceTrivia.facts = Array.isArray(state.scienceTrivia.facts) ? state.scienceTrivia.facts : [];
+  state.billiards = { ...defaults().billiards, ...(state.billiards || {}) };
+  state.gymLift = { ...defaults().gymLift, ...(state.gymLift || {}) };
+  state.quizChallenge = { ...defaults().quizChallenge, ...(state.quizChallenge || {}) };
   const saved = new Set(Array.isArray(state.done) ? state.done : []);
   state.done = [];
   for (const quest of quests) {
@@ -80,6 +86,25 @@ function drawScienceTrivia() {
   return `<section class="bonus-quest science-quest"><div class="task-label">Nieznane fakty · ${challenge.unknown}/3</div><label for="scienceFactInput">Opowiedz ciekawostkę naukową, a potem zapiszcie odpowiedź Grzegorza</label><textarea class="field" id="scienceFactInput" maxlength="240" placeholder="Wpisz krótką ciekawostkę"></textarea><div class="rps-buttons"><button class="btn" id="scienceKnown" disabled>Znał</button><button class="btn primary" id="scienceUnknown" disabled>Nie znał</button></div><ol class="science-facts">${facts}</ol></section>`;
 }
 
+function drawBilliards() {
+  const challenge = state.billiards;
+  if (challenge.done) return '<section class="bonus-quest"><strong>Cztery trafienia z rzędu — próba zaliczona!</strong></section>';
+  return `<section class="bonus-quest"><div class="task-label">Bilard · ${challenge.streak}/4 trafienia z rzędu</div><p>Traf cztery razy z rzędu bilardową bilę do łuzy. Po pudle licznik wraca do zera.</p><div class="rps-buttons"><button class="btn primary" id="billiardsHit">Trafienie</button><button class="btn" id="billiardsMiss">Pudło</button></div></section>`;
+}
+
+function drawGymLift() {
+  if (state.gymLift.done) return '<section class="bonus-quest"><strong>Dodatkowa próba siłowa zaliczona!</strong></section>';
+  return `<section class="bonus-quest"><div class="task-label">Dodatkowy quest · próba siłowa</div><p>Po beer pongu idźcie wspólnie na siłownię. Janek podejmuje kontrolowaną próbę z ciężarem większym niż Kacper. Nie sprawdzajcie maksymalnego ciężaru; wybierzcie bezpieczne obciążenie, a jeśli nie ma warunków — lekki zamiennik ustalony z Kacprem.</p><label class="toast-confirm"><input type="checkbox" id="gymLiftCheck"> Próba bezpiecznie wykonana albo zamiennik uzgodniony</label><button class="btn" id="gymLiftComplete" disabled>Potwierdź próbę siłową</button></section>`;
+}
+
+function drawQuestionnaire() {
+  const challenge = state.quizChallenge;
+  if (challenge.baliaRequired && !challenge.baliaDone) return `<section class="bonus-quest"><div class="task-label">Dodatkowa próba · balia</div><p>Wskakuj do balii (jacuzzi), aby dokończyć próbę. Wchodź spokojnie, bez skakania. Jeśli balia nie jest dostępna lub bezpieczna, wybierzcie z Mistrzem Gry bezpieczny zamiennik.</p><label class="toast-confirm"><input type="checkbox" id="baliaCheck"> Próba w balii lub bezpieczny zamiennik wykonane</label><button class="btn" id="baliaComplete" disabled>Potwierdź i zalicz próbę</button></section>`;
+  const passed = challenge.asked >= 5 && challenge.correct >= 3;
+  if (passed || challenge.asked >= 5) return `<section class="bonus-quest"><div class="task-label">Quiz Grzegorza · ${challenge.correct}/3 poprawnych</div><p>${passed ? 'Trzy poprawne odpowiedzi — quiz zaliczony!' : 'Pięć pytań za Tobą. Uruchomiono dodatkową próbę z balią.'}</p></section>`;
+  return `<section class="bonus-quest"><div class="task-label">Pytanie ${challenge.asked + 1}/5 · ${challenge.correct}/3 poprawnych · ${challenge.incorrect}/2 niepoprawnych</div><p>Grzegorz zadaje pytanie. Zaznaczcie wynik odpowiedzi Janka.</p><div class="rps-buttons"><button class="btn primary" id="quizCorrect">Poprawnie</button><button class="btn" id="quizIncorrect">Niepoprawnie</button></div></section>`;
+}
+
 function activeQuestHtml(quest, index) {
   const isFinal = quest.isFinal === true;
   const videoLink = quest.youtubeUrl
@@ -93,12 +118,12 @@ function activeQuestHtml(quest, index) {
   </div>` : '';
   const bonus = quest.bonusQuest ? `<section class="bonus-quest"><div class="task-label">Quest poboczny · ${escapeHtml(quest.bonusQuest.title)}</div><p>${textBlock(quest.bonusQuest.description)}</p>${state.korneliaHint ? `<div class="revealed-hint"><strong>Wskazówka do finału</strong><span>${escapeHtml(quest.bonusQuest.hint)}</span></div><button class="btn" id="openHintVideo">Odtwórz filmik</button>` : `<button class="btn" id="revealHint">Ukończyliśmy próbę — pokaż wskazówkę</button>`}</section>` : '';
   const rps = quest.rpsChallenge ? drawRps() : '';
-  const sideQuest = quest.sideQuest ? `<section class="bonus-quest"><div class="task-label">Dodatkowy quest</div><p>${textBlock(quest.sideQuest)}</p></section>` : '';
-  const challenge = quest.charadesChallenge ? drawCharades() : quest.tongueTwisterChallenge ? drawTongueTwister() : quest.scienceTriviaChallenge ? drawScienceTrivia() : '';
-  const challengeReady = (!quest.charadesChallenge || state.charades.success) && (!quest.tongueTwisterChallenge || state.tongueTwister.success || state.tongueTwister.penalty) && (!quest.scienceTriviaChallenge || state.scienceTrivia.unknown >= 3);
+  const sideQuest = quest.gymLiftChallenge ? drawGymLift() : quest.sideQuest ? `<section class="bonus-quest"><div class="task-label">Dodatkowy quest</div><p>${textBlock(quest.sideQuest)}</p></section>` : '';
+  const challenge = quest.charadesChallenge ? drawCharades() : quest.tongueTwisterChallenge ? drawTongueTwister() : quest.scienceTriviaChallenge ? drawScienceTrivia() : quest.billiardsChallenge ? drawBilliards() : quest.quizChallenge ? drawQuestionnaire() : '';
+  const challengeReady = (!quest.charadesChallenge || state.charades.success) && (!quest.tongueTwisterChallenge || state.tongueTwister.success || state.tongueTwister.penalty) && (!quest.scienceTriviaChallenge || state.scienceTrivia.unknown >= 3) && (!quest.billiardsChallenge || state.billiards.done) && (!quest.gymLiftChallenge || state.gymLift.done) && (!quest.quizChallenge || (state.quizChallenge.baliaRequired ? state.quizChallenge.baliaDone : (state.quizChallenge.asked >= 5 && state.quizChallenge.correct >= 3)));
   const canComplete = (!isFinal || state.finale) && !quest.rpsChallenge && challengeReady;
   const completionButton = quest.rpsChallenge ? '' : `<button class="btn primary" id="completeQuest" ${canComplete ? '' : 'disabled'}>Wykonałem questa</button>`;
-  const completionHint = isFinal && !state.finale ? 'Najpierw wpisz hasło finału.' : quest.charadesChallenge && !state.charades.success ? 'Vlada musi odgadnąć hasło przed upływem minuty.' : quest.tongueTwisterChallenge && !challengeReady ? 'Najpierw ukończ próbę łamańca.' : '';
+  const completionHint = isFinal && !state.finale ? 'Najpierw wpisz hasło finału.' : quest.charadesChallenge && !state.charades.success ? 'Vlada musi odgadnąć hasło przed upływem minuty.' : quest.tongueTwisterChallenge && !challengeReady ? 'Najpierw ukończ próbę łamańca.' : quest.billiardsChallenge && !challengeReady ? 'Najpierw traf cztery bile z rzędu.' : quest.gymLiftChallenge && !challengeReady ? 'Najpierw potwierdź dodatkową próbę siłową.' : quest.quizChallenge && !challengeReady ? 'Ukończ quiz albo dodatkową próbę z balią.' : '';
   return `<article class="quest active-quest ${quest.isMystery ? 'mystery' : ''} ${isFinal ? 'finale' : ''}">
     <div class="quest-num">Quest ${index + 1} z ${quests.length}${quest.isMystery ? ' · Tajemniczy NPC' : ''}</div>
     <img class="portrait" src="${escapeHtml(quest.portrait)}" alt="Portret: ${escapeHtml(quest.npcName)}" fetchpriority="high">
@@ -185,7 +210,10 @@ function drawQuests() {
     if (!quest || quest.rpsChallenge || (quest.isFinal && !state.finale)
       || (quest.charadesChallenge && !state.charades.success)
       || (quest.tongueTwisterChallenge && !state.tongueTwister.success && !state.tongueTwister.penalty)
-      || (quest.scienceTriviaChallenge && state.scienceTrivia.unknown < 3)) return;
+      || (quest.scienceTriviaChallenge && state.scienceTrivia.unknown < 3)
+      || (quest.billiardsChallenge && !state.billiards.done)
+      || (quest.gymLiftChallenge && !state.gymLift.done)
+      || (quest.quizChallenge && (state.quizChallenge.baliaRequired ? !state.quizChallenge.baliaDone : (state.quizChallenge.asked < 5 || state.quizChallenge.correct < 3)))) return;
     state.pendingToast = quest.id; state.toastDraft = ''; save(); render();
     scrollToActiveQuest();
   };
@@ -277,6 +305,35 @@ function drawQuests() {
     el('scienceKnown').onclick = () => recordFact(true);
     el('scienceUnknown').onclick = () => recordFact(false);
   }
+
+  if (el('billiardsHit')) el('billiardsHit').onclick = () => {
+    state.billiards.streak += 1;
+    if (state.billiards.streak >= 4) state.billiards.done = true;
+    save(); render();
+    if (state.billiards.done) toast('Cztery trafienia z rzędu — zaliczone!');
+  };
+  if (el('billiardsMiss')) el('billiardsMiss').onclick = () => { state.billiards.streak = 0; save(); render(); };
+  if (el('gymLiftCheck')) el('gymLiftCheck').onchange = () => { el('gymLiftComplete').disabled = !el('gymLiftCheck').checked; };
+  if (el('gymLiftComplete')) el('gymLiftComplete').onclick = () => {
+    if (!el('gymLiftCheck').checked) return;
+    state.gymLift.done = true; save(); render(); toast('Dodatkowa próba siłowa zaliczona!');
+  };
+  const recordQuizAnswer = correct => {
+    const challenge = state.quizChallenge;
+    if (challenge.baliaRequired || challenge.asked >= 5) return;
+    challenge.asked += 1;
+    if (correct) challenge.correct += 1; else challenge.incorrect += 1;
+    if (challenge.incorrect >= 2 || (challenge.asked >= 5 && challenge.correct < 3)) challenge.baliaRequired = true;
+    save(); render();
+    if (challenge.baliaRequired) toast('Odblokowano dodatkową próbę z balią');
+  };
+  if (el('quizCorrect')) el('quizCorrect').onclick = () => recordQuizAnswer(true);
+  if (el('quizIncorrect')) el('quizIncorrect').onclick = () => recordQuizAnswer(false);
+  if (el('baliaCheck')) el('baliaCheck').onchange = () => { el('baliaComplete').disabled = !el('baliaCheck').checked; };
+  if (el('baliaComplete')) el('baliaComplete').onclick = () => {
+    if (!el('baliaCheck').checked || !state.quizChallenge.baliaRequired) return;
+    state.quizChallenge.baliaDone = true; save(); render(); toast('Próba z balią zaliczona!');
+  };
 
   if (el('janekRound')) el('janekRound').onclick = () => recordRps('janek');
   if (el('dawidRound')) el('dawidRound').onclick = () => recordRps('dawid');
